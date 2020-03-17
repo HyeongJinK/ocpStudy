@@ -89,12 +89,11 @@ function finishDraw() {
 }
 ```
 
+## 전체 소스 코드
+
 ```javascript
 import React, {createRef, useEffect} from "react";
 
-
-
-## 전체 소스 코드
 function Draw(props) {
     let canvas;
     let canvasRef = createRef();
