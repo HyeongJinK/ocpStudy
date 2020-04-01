@@ -1,0 +1,16 @@
+version: '3.0'
+
+services:
+  startup:
+    image:  13.209.17.102:5000/startup
+    ports:
+      - 8080:8080
+    environment:
+      - SPRING_PROFILES_ACTIVE="swam-test"
+
+  user:
+    image:  13.209.17.102:5000/user
+    environment:
+      - SPRING_PROFILES_ACTIVE=swam-test
+ 
+networks: {}
