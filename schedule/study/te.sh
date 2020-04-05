@@ -30,40 +30,38 @@ docker build --tag config-server:latest ./cloud/config_server
 
 
 
-docker tag company ec2-13-209-17-102.ap-northeast-2.compute.amazonaws.com:5000/company:latest
-
-docker push ec2-13-209-17-102.ap-northeast-2.compute.amazonaws.com:5000/company:latest
-
-
-docker build --tag startup:latest ./microservices/startup-composite
-docker tag startup ec2-13-209-17-102.ap-northeast-2.compute.amazonaws.com:5000/startup
-docker push ec2-13-209-17-102.ap-northeast-2.compute.amazonaws.com:5000/startup
-
-docker build --tag ir:latest ./microservices/ir
-docker tag ir ec2-13-209-17-102.ap-northeast-2.compute.amazonaws.com:5000/ir
-docker push ec2-13-209-17-102.ap-northeast-2.compute.amazonaws.com:5000/ir
-
-docker build --tag board:latest ./microservices/board
-docker tag board ec2-13-209-17-102.ap-northeast-2.compute.amazonaws.com:5000/board
-docker push ec2-13-209-17-102.ap-northeast-2.compute.amazonaws.com:5000/board
-
-docker build --tag user:latest ./microservices/user
-docker tag user ec2-13-209-17-102.ap-northeast-2.compute.amazonaws.com:5000/user
-docker push ec2-13-209-17-102.ap-northeast-2.compute.amazonaws.com:5000/user
-
-docker build --tag shop:latest ./microservices/shop
-docker tag shop ec2-13-209-17-102.ap-northeast-2.compute.amazonaws.com:5000/shop
-docker push ec2-13-209-17-102.ap-northeast-2.compute.amazonaws.com:5000/shop
-
-docker build --tag communication:latest ./microservices/communication
-docker tag communication ec2-13-209-17-102.ap-northeast-2.compute.amazonaws.com:5000/communication
-docker push ec2-13-209-17-102.ap-northeast-2.compute.amazonaws.com:5000/communication
+docker tag company 13.209.17.102:5000/company:latest
+docker push 13.209.17.102:5000/company:latest
 
 
 
 docker build --tag company:latest ./microservices/company
-docker tag company ec2-13-209-17-102.ap-northeast-2.compute.amazonaws.com:5000/company
-docker push ec2-13-209-17-102.ap-northeast-2.compute.amazonaws.com:5000/company
+docker tag company 13.209.17.102:5000/company
+docker push 13.209.17.102:5000/company
+
+docker build --tag startup:latest ./microservices/startup-composite
+docker tag startup 13.209.17.102:5000/startup
+docker push 13.209.17.102:5000/startup
+
+docker build --tag ir:latest ./microservices/ir
+docker tag ir 13.209.17.102:5000/ir
+docker push 13.209.17.102:5000/ir
+
+docker build --tag board:latest ./microservices/board
+docker tag board 13.209.17.102:5000/board
+docker push 13.209.17.102:5000/board
+
+docker build --tag user:latest ./microservices/user
+docker tag user 13.209.17.102:5000/user
+docker push 13.209.17.102:5000/user
+
+docker build --tag shop:latest ./microservices/shop
+docker tag shop 13.209.17.102:5000/shop
+docker push 13.209.17.102:5000/shop
+
+docker build --tag communication:latest ./microservices/communication
+docker tag communication 13.209.17.102:5000/communication
+docker push 13.209.17.102:5000/communication
 
 
 
@@ -72,17 +70,21 @@ docker push ec2-13-209-17-102.ap-northeast-2.compute.amazonaws.com:5000/company
 
 
 
-sudo docker pull ec2-13-209-17-102.ap-northeast-2.compute.amazonaws.com:5000/company
-sudo docker pull ec2-13-209-17-102.ap-northeast-2.compute.amazonaws.com:5000/startup
-sudo docker pull ec2-13-209-17-102.ap-northeast-2.compute.amazonaws.com:5000/ir
-sudo docker pull ec2-13-209-17-102.ap-northeast-2.compute.amazonaws.com:5000/board
-sudo docker pull ec2-13-209-17-102.ap-northeast-2.compute.amazonaws.com:5000/user
-sudo docker pull ec2-13-209-17-102.ap-northeast-2.compute.amazonaws.com:5000/shop
-sudo docker pull ec2-13-209-17-102.ap-northeast-2.compute.amazonaws.com:5000/communication
 
 
 
-OPTIONS='--selinux-enabled --log-driver=journald --signature-verification=false --insecure-registry=ec2-13-209-17-102.ap-northeast-2.compute.amazonaws.com:5000
+
+sudo docker pull 13.209.17.102:5000/company
+sudo docker pull 13.209.17.102:5000/startup
+sudo docker pull 13.209.17.102:5000/ir
+sudo docker pull 13.209.17.102:5000/board
+sudo docker pull 13.209.17.102:5000/user
+sudo docker pull 13.209.17.102:5000/shop
+sudo docker pull 13.209.17.102:5000/communication
+
+
+
+OPTIONS='--selinux-enabled --log-driver=journald --signature-verification=false --insecure-registry=13.209.17.102:5000
 if [ -z "${DOCKER_CERT_PATH}" ]; then
     DOCKER_CERT_PATH=/etc/docker
 fi
@@ -116,23 +118,50 @@ docker-machine create --driver amazonec2 --amazonec2-instance-type t2.medium --a
 docker-machine create --driver amazonec2 --amazonec2-instance-type t2.medium --amazonec2-region ap-northeast-2 --swarm --swarm-master api-test-master
 
 
-sudo docker service create --name startup -p 8080:8080 -e SPRING_PROFILES_ACTIVE="swam-test" --replicas=1 --with-registry-auth 13.209.17.102:5000/startup:latest
+sudo docker service create --name startup -p 8080:8080 -e SPRING_PROFILES_ACTIVE="swam-new-test" --replicas=1 --with-registry-auth 13.209.17.102:5000/startup:latest
 
-sudo docker service create --name user -p 7301:7301 -e SPRING_PROFILES_ACTIVE="swam-test" --replicas=1 --with-registry-auth 13.209.17.102:5000/user
+sudo docker service create --name user -p 7301:7301 -e SPRING_PROFILES_ACTIVE="swam-new-test" --network api-test --replicas=1 --with-registry-auth 13.209.17.102:5000/user
 
 sudo docker network create -d overlay api-test
 --network ingress
 --network api-test
-sudo docker service create --name startup -p 8080:8080 -e SPRING_PROFILES_ACTIVE="swam-test" --replicas=2 --with-registry-auth 13.209.17.102:5000/startup:latest
-sudo docker service create --name user -e SPRING_PROFILES_ACTIVE="swam-test" --replicas=1 --with-registry-auth 13.209.17.102:5000/user
-sudo docker service create --name company -e SPRING_PROFILES_ACTIVE="swam-test" --replicas=1 --with-registry-auth 13.209.17.102:5000/company
-sudo docker service create --name ir -e SPRING_PROFILES_ACTIVE="swam-test" --replicas=1 --with-registry-auth 13.209.17.102:5000/ir
-sudo docker service create --name board -e SPRING_PROFILES_ACTIVE="swam-test" --replicas=1 --with-registry-auth 13.209.17.102:5000/board
-sudo docker service create --name shop -e SPRING_PROFILES_ACTIVE="swam-test" --replicas=1 --with-registry-auth 13.209.17.102:5000/shop
-sudo docker service create --name communication -e SPRING_PROFILES_ACTIVE="swam-test" --replicas=1 --with-registry-auth 13.209.17.102:5000/communication
+sudo docker service create --name startup -p 8080:8080 -e SPRING_PROFILES_ACTIVE="swam-new-test" --replicas=1 --network api-test --with-registry-auth 13.209.17.102:5000/startup:latest
+sudo docker service create --name user -e SPRING_PROFILES_ACTIVE="swam-new-test" --replicas=1 --network api-test --with-registry-auth 13.209.17.102:5000/user
+sudo docker service create --name company -e SPRING_PROFILES_ACTIVE="swam-new-test" --replicas=1 --network api-test --with-registry-auth 13.209.17.102:5000/company
+sudo docker service create --name ir -e SPRING_PROFILES_ACTIVE="swam-new-test" --replicas=1 --network api-test --with-registry-auth 13.209.17.102:5000/ir
+sudo docker service create --name board -e SPRING_PROFILES_ACTIVE="swam-new-test" --replicas=1 --network api-test --with-registry-auth 13.209.17.102:5000/board
+sudo docker service create --name shop -e SPRING_PROFILES_ACTIVE="swam-new-test" --replicas=1 --network api-test --with-registry-auth 13.209.17.102:5000/shop
+sudo docker service create --name communication -e SPRING_PROFILES_ACTIVE="swam-new-test" --replicas=1 --network api-test --with-registry-auth 13.209.17.102:5000/communication
 
-sudo docker service create --name startup -p 8080:8080 -e SPRING_PROFILES_ACTIVE="swam-test" --replicas=1 ec2-13-209-17-102.ap-northeast-2.compute.amazonaws.com:5000/startup
-sudo docker service create --name user -e SPRING_PROFILES_ACTIVE="swam-test" --replicas=1 ec2-13-209-17-102.ap-northeast-2.compute.amazonaws.com:5000/user
+sudo docker service create --name startup -p 8080:8080 -e SPRING_PROFILES_ACTIVE="swam-new-test" --replicas=1 ec2-13-209-17-102.ap-northeast-2.compute.amazonaws.com:5000/startup
+sudo docker service create --name user -e SPRING_PROFILES_ACTIVE="swam-new-test" --replicas=1 ec2-13-209-17-102.ap-northeast-2.compute.amazonaws.com:5000/user
 
 
 sudo docker service create --name hostname -p 8080:80 --replicas=1 --network fabric-samples alicek106/book:hostname
+
+
+
+
+
+
+sudo docker exec invest-backend_mariadb_1 /usr/bin/mysqldump -u root –password=root DATABASE > backup.sql
+
+
+
+sudo docker run --name db -p 3306:3306 -e MYSQL_ROOT_PASSWORD=Illunex123! -d mariadb
+
+
+
+
+
+docker-machine create --driver amazonec2 --amazonec2-instance-type t2.medium --amazonec2-region ap-northeast-2 api-test-master
+
+docker-machine create --driver amazonec2 --amazonec2-region ap-northeast-1 api-test-master
+docker-machine create --driver amazonec2 --amazonec2-region ap-northeast-1 api-test-node1
+
+
+
+Swarm 모드에서 사용되는 포트 정보
+클러스터 관리용 통신 포트: TCP 2377번
+노드 간 통신용 포트: TCP/UDP 7946번
+오버레이 네트워크 트래픽 용 포트: UDP 4789번
