@@ -34,53 +34,46 @@ docker tag company 13.209.17.102:5000/company:latest
 docker push 13.209.17.102:5000/company:latest
 
 
-
-docker build --tag company:latest ./microservices/company
-docker tag company 13.209.17.102:5000/company
-docker push 13.209.17.102:5000/company
-
-docker build --tag startup:latest ./microservices/startup-composite
-docker tag startup 13.209.17.102:5000/startup
-docker push 13.209.17.102:5000/startup
-
-docker build --tag ir:latest ./microservices/ir
-docker tag ir 13.209.17.102:5000/ir
-docker push 13.209.17.102:5000/ir
-
 docker build --tag board:latest ./microservices/board
 docker tag board 13.209.17.102:5000/board
 docker push 13.209.17.102:5000/board
-
-docker build --tag user:latest ./microservices/user
-docker tag user 13.209.17.102:5000/user
-docker push 13.209.17.102:5000/user
-
-docker build --tag shop:latest ./microservices/shop
-docker tag shop 13.209.17.102:5000/shop
-docker push 13.209.17.102:5000/shop
 
 docker build --tag communication:latest ./microservices/communication
 docker tag communication 13.209.17.102:5000/communication
 docker push 13.209.17.102:5000/communication
 
+docker build --tag company:latest ./microservices/company
+docker tag company 13.209.17.102:5000/company
+docker push 13.209.17.102:5000/company
+
+docker build --tag ir:latest ./microservices/ir
+docker tag ir 13.209.17.102:5000/ir
+docker push 13.209.17.102:5000/ir
+
+docker build --tag shop:latest ./microservices/shop
+docker tag shop 13.209.17.102:5000/shop
+docker push 13.209.17.102:5000/shop
+
+docker build --tag startup:latest ./microservices/startup-composite
+docker tag startup 13.209.17.102:5000/startup
+docker push 13.209.17.102:5000/startup
+
+docker build --tag user:latest ./microservices/user
+docker tag user 13.209.17.102:5000/user
+docker push 13.209.17.102:5000/user
 
 
 
 
 
 
-
-
-
-
-
-sudo docker pull 13.209.17.102:5000/company
-sudo docker pull 13.209.17.102:5000/startup
-sudo docker pull 13.209.17.102:5000/ir
 sudo docker pull 13.209.17.102:5000/board
-sudo docker pull 13.209.17.102:5000/user
-sudo docker pull 13.209.17.102:5000/shop
 sudo docker pull 13.209.17.102:5000/communication
+sudo docker pull 13.209.17.102:5000/company
+sudo docker pull 13.209.17.102:5000/ir
+sudo docker pull 13.209.17.102:5000/shop
+sudo docker pull 13.209.17.102:5000/startup
+sudo docker pull 13.209.17.102:5000/user
 
 
 
