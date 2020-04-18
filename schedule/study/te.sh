@@ -29,11 +29,6 @@ docker build --tag eureka-server:latest ./cloud/eureka-server
 docker build --tag config-server:latest ./cloud/config_server
 
 
-
-docker tag company 13.209.17.102:5000/company:latest
-docker push 13.209.17.102:5000/company:latest
-
-
 docker build --tag board:latest ./microservices/board
 docker tag board 13.209.17.102:5000/board
 docker push 13.209.17.102:5000/board
@@ -63,8 +58,24 @@ docker tag user 13.209.17.102:5000/user
 docker push 13.209.17.102:5000/user
 
 
-
-
+docker build --tag 13.209.17.102:5000/board:latest ./microservices/board
+docker push 13.209.17.102:5000/board:latest
+docker build --tag 13.209.17.102:5000/communication:latest ./microservices/communication
+docker push 13.209.17.102:5000/communication:latest
+docker build --tag 13.209.17.102:5000/company:latest ./microservices/company
+docker push 13.209.17.102:5000/company:latest
+docker build --tag 13.209.17.102:5000/investment:latest ./microservices/investment
+docker push 13.209.17.102:5000/investment:latest
+docker build --tag 13.209.17.102:5000/ir:latest ./microservices/ir
+docker push 13.209.17.102:5000/ir:latest
+docker build --tag 13.209.17.102:5000/shop:latest ./microservices/shop
+docker push 13.209.17.102:5000/shop:latest
+docker build --tag 13.209.17.102:5000/startup:latest ./microservices/startup-composite
+docker push 13.209.17.102:5000/startup:latest
+docker build --tag 13.209.17.102:5000/user:latest ./microservices/user
+docker push 13.209.17.102:5000/user:latest
+docker build --tag 13.209.17.102:5000/vc:latest ./microservices/vc-composite
+docker push 13.209.17.102:5000/vc:latest
 
 
 sudo docker pull 13.209.17.102:5000/board
