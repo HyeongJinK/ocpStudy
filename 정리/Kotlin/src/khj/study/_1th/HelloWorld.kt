@@ -8,6 +8,9 @@ fun main(args: Array<String>) {
     // 문자열 템플릿
     val c = "aaa"
     print("dddd ${c}")
+
+    
+    val d = A("test", "test2")
 }
 
 fun max (a: Int, b: Int): Int { // 함수이름, 파라미터목록, 리턴타입
