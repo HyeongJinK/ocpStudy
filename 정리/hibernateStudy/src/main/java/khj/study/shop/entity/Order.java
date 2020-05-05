@@ -1,8 +1,11 @@
 package khj.study.shop.entity;
 
+import lombok.Getter;
+
 import javax.persistence.*;
 
 //@Entity
+@Getter
 public class Order {
   //  @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;

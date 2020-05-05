@@ -1,6 +1,6 @@
 package khj.study;
 
-public interface MainService {
+public interface MainController {
     void start();
     void finish();
 }

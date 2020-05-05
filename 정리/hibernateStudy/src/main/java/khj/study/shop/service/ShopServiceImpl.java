@@ -1,5 +1,6 @@
 package khj.study.shop.service;
 
+import khj.study.shop.entity.Cart;
 import khj.study.shop.entity.ClassProduct;
 import khj.study.shop.entity.KitProduct;
 import khj.study.shop.entity.Product;
@@ -12,19 +13,26 @@ import java.util.List;
 public class ShopServiceImpl implements ShopService {
     private static ShopService shopService = new ShopServiceImpl();
     private final ProductRepository productRepository;
+    Cart cart = new Cart();
 
     private ShopServiceImpl() {
         productRepository = ProductRepository.getInstance();
+        setInitProductData();
     }
 
     public static ShopService getInstance() {
         return shopService;
     }
 
+
+    @Override
+    public List<Product> getProductAll() {
+        return productRepository.findAll();
+    }
+
     @Override
     public void shopping() {
-        setInitProductData();
-        productsDraw(productRepository.findAll());
+        //productsDraw(productRepository.findAll());
 
 
 //        Scanner sc = new Scanner(System.in);
@@ -43,6 +51,12 @@ public class ShopServiceImpl implements ShopService {
 //            }
 //        }
     }
+
+    @Override
+    public void order() {
+
+    }
+
     /**
      * 데이터 초기화
      * */
@@ -69,32 +83,5 @@ public class ShopServiceImpl implements ShopService {
         products.add(new ClassProduct(74218l, "나만의 문방구를 차려요! 그리지영의 타블렛으로 굿즈 만들기", new BigDecimal(191600)));
         products.add(new ClassProduct(28448l, "당신도 할 수 있다! 베테랑 실무자가 알려주는 모션그래픽의 모든 것", new BigDecimal(152200)));
         productRepository.saveAll(products);
-    }
-
-    private static boolean isOrder(String status) {
-        status = status.toLowerCase();
-        return status.equals("o") || status.equals("order");
-    }
-
-    private static boolean isQuit(String status) {
-        status = status.toLowerCase();
-        return status.equals("q") || status.equals("quit");
-    }
-
-    private static void failInput() {
-        System.out.println("잘못된 입력입니다.");
-    }
-
-    private static void quit() {
-        System.out.println("고객님의 주문 감사합니다.");
-    }
-
-
-    /**
-     * 상품 출력
-     * */
-    public void productsDraw(List<Product> products) {
-        System.out.println("상품번호\t\t\t\t\t\t\t\t\t\t상품명\t\t\t\t\t\t\t\t\t\t판매가격\t재고수");
-        products.stream().forEach(Product::draw);
     }
 }

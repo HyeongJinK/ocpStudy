@@ -4,9 +4,9 @@ public class App
 {
     public static void main( String[] args )
     {
-        MainService mainService = MainServiceImpl.getInstance();
+        MainController mainController = MainControllerImpl.getInstance();
 
-        mainService.start();
-        mainService.finish();
+        mainController.start();
+        mainController.finish();
     }
 }

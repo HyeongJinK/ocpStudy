@@ -13,9 +13,10 @@ public class Cart {
     }
 
     public void drawOrders() {
+        System.out.println("주문내역");
         System.out.println("---------------------------------------------------");
         orders.stream().forEach(order -> {
-
+            //System.out.println(orde);
         });
         System.out.println("---------------------------------------------------");
     }
