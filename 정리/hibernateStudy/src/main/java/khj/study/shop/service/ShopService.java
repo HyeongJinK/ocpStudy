@@ -6,6 +6,4 @@ import java.util.List;
 
 public interface ShopService {
     List<Product> getProductAll();
-    void shopping();
-    void order();
 }
