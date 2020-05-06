@@ -4,7 +4,7 @@ import khj.study.shop.entity.Cart;
 import khj.study.shop.entity.ClassProduct;
 import khj.study.shop.entity.KitProduct;
 import khj.study.shop.entity.Product;
-import khj.study.shop.repository.ProductRepository;
+import khj.study.shop.repository.ProductRepositoryImpl;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -12,11 +12,11 @@ import java.util.List;
 
 public class ShopServiceImpl implements ShopService {
     private static ShopService shopService = new ShopServiceImpl();
-    private final ProductRepository productRepository;
+    private final ProductRepositoryImpl productRepositoryImpl;
     Cart cart = new Cart();
 
     private ShopServiceImpl() {
-        productRepository = ProductRepository.getInstance();
+        productRepositoryImpl = ProductRepositoryImpl.getInstance();
         setInitProductData();
     }
 
@@ -27,7 +27,7 @@ public class ShopServiceImpl implements ShopService {
 
     @Override
     public List<Product> getProductAll() {
-        return productRepository.findAll();
+        return productRepositoryImpl.findAll();
     }
 
     @Override
@@ -82,6 +82,6 @@ public class ShopServiceImpl implements ShopService {
         products.add(new ClassProduct(45947l, "일러스트레이터 집시의 매력적인 얼굴 그리기", new BigDecimal(249500)));
         products.add(new ClassProduct(74218l, "나만의 문방구를 차려요! 그리지영의 타블렛으로 굿즈 만들기", new BigDecimal(191600)));
         products.add(new ClassProduct(28448l, "당신도 할 수 있다! 베테랑 실무자가 알려주는 모션그래픽의 모든 것", new BigDecimal(152200)));
-        productRepository.saveAll(products);
+        productRepositoryImpl.saveAll(products);
     }
 }
