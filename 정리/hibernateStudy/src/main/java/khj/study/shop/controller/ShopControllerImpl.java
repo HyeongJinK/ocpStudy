@@ -1,7 +1,11 @@
 package khj.study.shop.controller;
 
+import khj.study.exception.NoneProductException;
+import khj.study.exception.OrderException;
 import khj.study.shop.entity.Product;
-import khj.study.shop.model.Order;
+import khj.study.shop.model.CartDto;
+import khj.study.shop.model.OrderDto;
+import khj.study.shop.model.PurchaseResult;
 import khj.study.shop.service.ShopService;
 import khj.study.shop.service.ShopServiceImpl;
 
@@ -28,8 +32,23 @@ public class ShopControllerImpl implements ShopController {
     }
 
     @Override
-    public void order(List<Order> orders) {
+    public OrderDto addOrder(Long productId, int quantity) {
+        try {
+            shopService.addOrder(productId, quantity);
+            return new OrderDto();
+        } catch (OrderException | NoneProductException e) {
+            return new OrderDto(e.getMessage());
+        }
+    }
 
+    @Override
+    public CartDto getCart() {
+        return shopService.getCartAll();
+    }
+
+    @Override
+    public PurchaseResult purchase() {
+        return null;
     }
 
 

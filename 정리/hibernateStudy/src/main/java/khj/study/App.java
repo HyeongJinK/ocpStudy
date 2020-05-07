@@ -3,9 +3,10 @@ package khj.study;
 import khj.study.shop.controller.ShopController;
 import khj.study.shop.controller.ShopControllerImpl;
 import khj.study.shop.entity.Product;
-import khj.study.shop.model.Order;
+import khj.study.shop.model.CartDto;
+import khj.study.shop.model.OrderDto;
 
-import java.util.ArrayList;
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Scanner;
 
@@ -16,6 +17,7 @@ import java.util.Scanner;
 public class App
 {
     static ShopController shopController = ShopControllerImpl.getInstance();
+
     public static void main( String[] args )
     {
         productsDraw(shopController.getProductAll());
@@ -43,7 +45,8 @@ public class App
             status = sc.next();
 
             if (isOrder(status)) {
-                List<Order> orders = ordering();
+                ordering();
+                drawOrder(shopController.getCart());
             } else if (isQuit(status)) {
                 quit();
             } else {
@@ -54,31 +57,50 @@ public class App
     /**
      * 주문
      * */
-    private static List<Order> ordering() {
-        List<Order> orders = new ArrayList<>();
+    private static void ordering() {
         Scanner sc = new Scanner(System.in);
         String id = "";
         int quantity = 0;
 
         while(true) {
             System.out.print("상품번호 : ");
-            id = sc.next();
-            if (id.equals("")) break;
+            id = sc.nextLine();
+            if (id.equals(" ")) break;
 
             System.out.print("수량 : ");
-            quantity = sc.nextInt();
-
-            orders.add(new Order(Long.parseLong(id), quantity));
+            quantity = Integer.parseInt(sc.nextLine());
+            OrderDto result = shopController.addOrder(Long.parseLong(id), quantity);
+            if (!result.getMessage().equals("")) {
+                System.out.println(result.getMessage());
+            }
         }
-
-        return orders;
     }
 
-    private static void drawOrder(List<Order> orders) {
+    private static void drawOrder(CartDto cartDTO) {
         System.out.println("주문 내역:");
         System.out.println("------------------------------------------------------------------");
+        cartDTO.getCarts().stream()
+                .forEach(cart -> System.out.println(cart.getProduct().getTitle() + " - " +cart.getQuantity()));
         System.out.println("------------------------------------------------------------------");
+        System.out.print("주문금액: ");
+        System.out.println(toNumFormat(cartDTO.getOrderPrice()));
+        drawDelivery(cartDTO.getDeliveryFee());
+        System.out.println("------------------------------------------------------------------");
+        System.out.print("지불금액: ");
+        System.out.println(toNumFormat(cartDTO.getPayPrice()));
+        System.out.println("------------------------------------------------------------------");
+    }
 
+    private static String toNumFormat(long price) {
+        DecimalFormat df = new DecimalFormat("#.###");
+        return df.format(price);
+    }
+
+    private static void drawDelivery(long delivery) {
+        if (delivery != 0) {
+            System.out.print("배송비: ");
+            System.out.println(toNumFormat(delivery));
+        }
     }
 
     private static boolean isOrder(String status) {
@@ -97,5 +119,6 @@ public class App
 
     private static void quit() {
         System.out.println("고객님의 주문 감사합니다.");
+        System.exit(0);
     }
 }

@@ -1,20 +1,33 @@
 package khj.study.shop.service;
 
+import khj.study.exception.NoneProductException;
+import khj.study.exception.OrderException;
+import khj.study.shop.entity.Cart;
 import khj.study.shop.entity.ClassProduct;
 import khj.study.shop.entity.KitProduct;
 import khj.study.shop.entity.Product;
-import khj.study.shop.repository.ProductRepositoryImpl;
+import khj.study.shop.model.CartDto;
+import khj.study.shop.model.ProductCheckResult;
+import khj.study.shop.repository.*;
+import lombok.RequiredArgsConstructor;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+@RequiredArgsConstructor
 public class ShopServiceImpl implements ShopService {
     private static ShopService shopService = new ShopServiceImpl();
-    private final ProductRepositoryImpl productRepositoryImpl;
+    private final ProductRepository productRepository;
+    private final PurchaseRepository purchaseRepository;
+    private final CartRepository cartRepository;
+    private final OrderRepository orderRepository;
 
     private ShopServiceImpl() {
-        productRepositoryImpl = ProductRepositoryImpl.getInstance();
+        productRepository = ProductRepositoryImpl.getInstance();
+        purchaseRepository = PurchaseRepositoryImpl.getInstance();
+        cartRepository = CartRepositoryImpl.getInstance();
+        orderRepository = OrderRepositoryImpl.getInstance();
         setInitProductData();
     }
 
@@ -22,10 +35,42 @@ public class ShopServiceImpl implements ShopService {
         return shopService;
     }
 
-
     @Override
     public List<Product> getProductAll() {
-        return productRepositoryImpl.findAll();
+        return productRepository.findAll();
+    }
+
+    @Override
+    public void addOrder(Long productId, int quantity) {
+        Product product = productRepository.findById(productId);
+
+        if (product == null) {
+            throw new NoneProductException("해당번호에 상품은 없는 상품입니다.");
+        }
+
+        ProductCheckResult checkResult = product.quantityCheck(quantity);
+        productOrderCheck(checkResult);
+
+        checkResult = product.beforePurchaseCheck(orderRepository.findByProductId(productId));
+        productOrderCheck(checkResult);
+
+        cartRepository.save(new Cart(product, quantity));
+    }
+
+    private void productOrderCheck(ProductCheckResult checkResult) {
+        if (!checkResult.isCheck()) {
+            throw new OrderException(checkResult.getMessage());
+        }
+    }
+
+    @Override
+    public CartDto getCartAll() {
+        return new CartDto(cartRepository.findAll());
+    }
+
+    @Override
+    public void purchase() {
+        List<Cart> carts = cartRepository.findAll();
     }
 
 
@@ -54,6 +99,6 @@ public class ShopServiceImpl implements ShopService {
         products.add(new ClassProduct(45947L, "일러스트레이터 집시의 매력적인 얼굴 그리기", new BigDecimal(249500)));
         products.add(new ClassProduct(74218L, "나만의 문방구를 차려요! 그리지영의 타블렛으로 굿즈 만들기", new BigDecimal(191600)));
         products.add(new ClassProduct(28448L, "당신도 할 수 있다! 베테랑 실무자가 알려주는 모션그래픽의 모든 것", new BigDecimal(152200)));
-        productRepositoryImpl.saveAll(products);
+        productRepository.saveAll(products);
     }
 }

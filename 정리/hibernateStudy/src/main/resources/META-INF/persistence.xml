@@ -7,6 +7,9 @@
         <class>khj.study.shop.entity.Product</class>
         <class>khj.study.shop.entity.ClassProduct</class>
         <class>khj.study.shop.entity.KitProduct</class>
+        <class>khj.study.shop.entity.Cart</class>
+        <class>khj.study.shop.entity.Order</class>
+        <class>khj.study.shop.entity.Purchase</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
