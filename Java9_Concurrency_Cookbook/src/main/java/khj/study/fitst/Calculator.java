@@ -9,7 +9,7 @@ public class Calculator implements Runnable {
         System.out.printf("Thread '%s': START\n", Thread.currentThread().getName());
         while (current <= max) {
             if (isPrime(current)) {
-                numPrimes++;
+                numPrimes++;        //소수의 갯수
                 //System.out.printf("Thread '%s': %d\n", Thread.currentThread().getName(), numPrimes);
             }
             current++;
@@ -18,7 +18,7 @@ public class Calculator implements Runnable {
                 Thread.currentThread().getName(), numPrimes);
     }
 
-    private boolean isPrime(long number) {
+    private boolean isPrime(long number) {      // 소수 구하기
         if (number <= 2) {
             return true;
         }
