@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Counting_Duplicate_Characters/Counting_Duplicate_Characters.iml" filepath="$PROJECT_DIR$/Counting_Duplicate_Characters/Counting_Duplicate_Characters.iml" />
       <module fileurl="file://$PROJECT_DIR$/Finding_the_first_non-repeated_character/Finding_the_first_non-repeated_character.iml" filepath="$PROJECT_DIR$/Finding_the_first_non-repeated_character/Finding_the_first_non-repeated_character.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Reversing_letters_and_words/Reversing_letters_and_words.iml" filepath="$PROJECT_DIR$/../Reversing_letters_and_words/Reversing_letters_and_words.iml" />
     </modules>
   </component>
 </project>
