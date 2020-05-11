@@ -5,10 +5,10 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * Hello world!
+ * 각각의 문자가 몇번씩 나오는 지 체크하기
  *
  */
-public class App 
+public class App
 {
     public static void main( String[] args )
     {
