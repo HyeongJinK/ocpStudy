@@ -18,7 +18,7 @@ public class App
     private static final String WHITESPACE = " ";
 
     public static String reverseWords(String str) {
-        String[] words = str.split(WHITESPACE);     //공백으로 단어 구
+        String[] words = str.split(WHITESPACE);     //공백으로 단어 구분
         StringBuilder reversedString = new StringBuilder();
 
         for (String word: words) {

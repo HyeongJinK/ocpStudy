@@ -6,12 +6,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="Counting vowels and consonants" />
         <module name="Counting_Duplicate_Characters" />
+        <module name="Checking_whether_ a_string_contains_only_digits" />
         <module name="Finding_the_first_non-repeated_character" />
         <module name="Reversing_letters_and_words" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="10">
+      <module name="Checking_whether_ a_string_contains_only_digits" target="8" />
+      <module name="Counting vowels and consonants" target="11" />
       <module name="Counting_Duplicate_Characters" target="8" />
       <module name="Finding_the_first_non-repeated_character" target="12" />
       <module name="Reversing_letters_and_words" target="12" />

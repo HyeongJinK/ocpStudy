@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../Checking_whether_ a_string_contains_only_digits/Checking_whether_ a_string_contains_only_digits.iml" filepath="$PROJECT_DIR$/../Checking_whether_ a_string_contains_only_digits/Checking_whether_ a_string_contains_only_digits.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Counting vowels and consonants/Counting vowels and consonants.iml" filepath="$PROJECT_DIR$/../Counting vowels and consonants/Counting vowels and consonants.iml" />
       <module fileurl="file://$PROJECT_DIR$/Counting_Duplicate_Characters/Counting_Duplicate_Characters.iml" filepath="$PROJECT_DIR$/Counting_Duplicate_Characters/Counting_Duplicate_Characters.iml" />
       <module fileurl="file://$PROJECT_DIR$/Finding_the_first_non-repeated_character/Finding_the_first_non-repeated_character.iml" filepath="$PROJECT_DIR$/Finding_the_first_non-repeated_character/Finding_the_first_non-repeated_character.iml" />
       <module fileurl="file://$PROJECT_DIR$/../Reversing_letters_and_words/Reversing_letters_and_words.iml" filepath="$PROJECT_DIR$/../Reversing_letters_and_words/Reversing_letters_and_words.iml" />
