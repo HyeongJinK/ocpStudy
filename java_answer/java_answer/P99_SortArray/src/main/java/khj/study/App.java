@@ -165,7 +165,7 @@ public class App
         System.out.println("\nSorting numbers ...");
         int[] cloneIntegersCks = integers.clone();
         long startTimeV14 = clock.millis();
-        ArraySorts.cocktailSort(cloneIntegersCks)
+        ArraySorts.cocktailSort(cloneIntegersCks);
         displayExecutionTime(clock.millis() - startTimeV14);
         displayIntSortedArray(cloneIntegersCks);
 
