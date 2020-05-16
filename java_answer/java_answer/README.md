@@ -1,1 +1,1 @@
-https://github.com/napasun/Document/tree/master/Java
+https://github.com/napasun/Document/tree/master/Java%20Coding%20Problems
