@@ -9,7 +9,6 @@ public class ArraySorts {
     }
 
     public static void bubbleSort(int[] arr) {
-
         if (arr == null) {
             throw new IllegalArgumentException("Array cannot be null");
         }
@@ -27,7 +26,6 @@ public class ArraySorts {
     }
 
     public static void pancakeSort(int[] arr) {
-
         if (arr == null) {
             throw new IllegalArgumentException("Array cannot be null");
         }
@@ -50,7 +48,6 @@ public class ArraySorts {
     }
 
     private static void flip(int[] arr, int left, int right) {
-
         while (left <= right) {
             int temp = arr[left];
             arr[left] = arr[right];
@@ -62,7 +59,6 @@ public class ArraySorts {
     }
 
     public static void exchangeSort(int[] arr) {
-
         if (arr == null) {
             throw new IllegalArgumentException("Array cannot be null");
         }
@@ -81,7 +77,6 @@ public class ArraySorts {
 
     public static <T>
     void bubbleSortWithComparator(T arr[], Comparator<? super T> c) {
-
         if (arr == null || c == null) {
             throw new IllegalArgumentException("Array/Comparator cannot be null");
         }
@@ -99,7 +94,6 @@ public class ArraySorts {
     }
 
     public static void bubleSortOptimized(int[] arr) {
-
         if (arr == null) {
             throw new IllegalArgumentException("Array cannot be null");
         }
@@ -126,7 +120,6 @@ public class ArraySorts {
 
     public static <T>
     void bubleSortOptimizedWithComparator(T[] arr, Comparator<? super T> c) {
-
         if (arr == null || c == null) {
             throw new IllegalArgumentException("Array/Comparator cannot be null");
         }
@@ -152,7 +145,6 @@ public class ArraySorts {
     }
 
     public static void selectionSort(int[] arr) {
-
         if (arr.length == 0) {
             throw new IllegalArgumentException("Array length cannot be 0");
         }
@@ -174,7 +166,6 @@ public class ArraySorts {
     }
 
     public static void shellSort(int[] arr) {
-
         if (arr.length == 0) {
             throw new IllegalArgumentException("Array length cannot be 0");
         }
@@ -200,9 +191,10 @@ public class ArraySorts {
             q = (q - 1) / 3;
         }
     }
-
+    /**
+     * 삽입정렬
+     * */
     public static void insertionSort(int arr[]) {
-
         if (arr == null) {
             throw new IllegalArgumentException("Array cannot be null");
         }
@@ -227,11 +219,9 @@ public class ArraySorts {
 
     public static <T>
     void insertionSortWithComparator(T arr[], Comparator<? super T> c) {
-
         if (arr == null || c == null) {
             throw new IllegalArgumentException("Array/Comparator cannot be null");
         }
-
         if (arr.length == 0) {
             throw new IllegalArgumentException("Array length cannot be 0");
         }
@@ -251,7 +241,6 @@ public class ArraySorts {
     }
 
     public static void countingSort(int[] arr) {
-
         if (arr == null) {
             throw new IllegalArgumentException("Array cannot be null");
         }
@@ -286,7 +275,6 @@ public class ArraySorts {
     }
 
     public static void mergeSort(int[] arr) {
-
         if (arr == null) {
             throw new IllegalArgumentException("Array cannot be null");
         }
@@ -303,7 +291,6 @@ public class ArraySorts {
     }
 
     private static int[] leftHalf(int[] arr) {
-
         int size = arr.length / 2;
         int[] left = new int[size];
         System.arraycopy(arr, 0, left, 0, size);
@@ -312,7 +299,6 @@ public class ArraySorts {
     }
 
     private static int[] rightHalf(int[] arr) {
-
         int size1 = arr.length / 2;
         int size2 = arr.length - size1;
         int[] right = new int[size2];
@@ -324,7 +310,6 @@ public class ArraySorts {
     }
 
     private static void merge(int[] result, int[] left, int[] right) {
-
         int t1 = 0;
         int t2 = 0;
 
@@ -340,7 +325,6 @@ public class ArraySorts {
     }
 
     public static void heapSort(int[] arr) {
-
         if (arr == null) {
             throw new IllegalArgumentException("Array cannot be null");
         }
@@ -365,7 +349,6 @@ public class ArraySorts {
     }
 
     private static void heapify(int[] arr, int n, int i) {
-
         int left = i * 2 + 1;
         int right = i * 2 + 2;
         int greater;
@@ -388,7 +371,6 @@ public class ArraySorts {
 
     public static <T>
     void heapSortWithComparator(T[] arr, Comparator<? super T> c) {
-
         if (arr == null || c == null) {
             throw new IllegalArgumentException("Array/Comparator cannot be null");
         }
@@ -415,7 +397,6 @@ public class ArraySorts {
 
     private static <T>
     void heapify(T[] arr, int n, int i, Comparator<? super T> c) {
-
         int left = i * 2 + 1;
         int right = i * 2 + 2;
         int greater;
@@ -437,7 +418,6 @@ public class ArraySorts {
     }
 
     public static void bucketSort(int[] arr) {
-
         if (arr == null) {
             throw new IllegalArgumentException("Array cannot be null");
         }
@@ -468,7 +448,6 @@ public class ArraySorts {
     }
 
     public static void cocktailSort(int[] arr) {
-
         if (arr == null) {
             throw new IllegalArgumentException("Array cannot be null");
         }
@@ -504,7 +483,6 @@ public class ArraySorts {
     }
 
     public static void cycleSort(int[] arr) {
-
         if (arr == null) {
             throw new IllegalArgumentException("Array cannot be null");
         }
@@ -551,7 +529,6 @@ public class ArraySorts {
     }
 
     public static void quickSort(int[] arr, int left, int right) {
-
         if (left < right) {
             int pivot = partition(arr, left, right);
 
@@ -561,7 +538,6 @@ public class ArraySorts {
     }
 
     private static int partition(int[] arr, int left, int right) {
-
         int pivot = arr[right];
         int m = left;
         for (int i = m; i < right; i++) {
@@ -603,7 +579,6 @@ public class ArraySorts {
     }
 
     public static void radixSort(int[] arr, int radix) {
-
         if (arr == null) {
             throw new IllegalArgumentException("Array cannot be null");
         }
@@ -631,7 +606,6 @@ public class ArraySorts {
 
     private static void countSortByDigit(
             int[] arr, int radix, int exp, int min) {
-
         int[] buckets = new int[radix];
         for (int i = 0; i < radix; i++) {
             buckets[i] = 0;
@@ -671,7 +645,6 @@ public class ArraySorts {
 
     // bonus
     public static void shuffleInt(int[] arr) {
-
         if (arr == null) {
             throw new IllegalArgumentException("Array cannot be null");
         }
@@ -686,7 +659,6 @@ public class ArraySorts {
     }
 
     public static <T> void shuffleObj(T[] arr) {
-
         if (arr == null) {
             throw new IllegalArgumentException("Array cannot be null");
         }
