@@ -604,8 +604,7 @@ public class ArraySorts {
         }
     }
 
-    private static void countSortByDigit(
-            int[] arr, int radix, int exp, int min) {
+    private static void countSortByDigit(int[] arr, int radix, int exp, int min) {
         int[] buckets = new int[radix];
         for (int i = 0; i < radix; i++) {
             buckets[i] = 0;
