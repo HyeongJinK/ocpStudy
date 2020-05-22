@@ -3,4 +3,11 @@
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />
   </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/P99_Finding an element in an array/P99_FindingElementArray/pom.xml" />
+      </list>
+    </option>
+  </component>
 </project>
