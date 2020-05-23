@@ -17,6 +17,9 @@ public class App
 
         System.out.println(containsElement2(numbers, 5));
         System.out.println(containsElement2(numbers, 8));
+
+        System.out.println(containsElement3(numbers, 5));
+        System.out.println(containsElement3(numbers, 8));
     }
 
     public static boolean containsElement(int[] arr, int toContain) {
@@ -34,4 +37,7 @@ public class App
         return (index >= 0);
     }
 
+    public static boolean containsElement3(int[] arr, int toContain) {
+        return Arrays.stream(arr).anyMatch(e -> e == toContain);
+    }
 }
