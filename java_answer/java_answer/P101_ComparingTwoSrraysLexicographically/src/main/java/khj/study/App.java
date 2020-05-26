@@ -4,8 +4,11 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 /**
- * Hello world!
+ * 두 배열 비교
  *
+ * 주어진 배열이 같고 동일한 순서로 동일한 요소를 포함하는 경우 0
+ * 첫 번째 배열이 사 전적으로 두 번째 배열보다 작은 경우 0보다 작은 값
+ * 첫 번째 배열이 사 전적으로 두 번째 배열보다 큰 경우 0보다 큰 값
  */
 public class App 
 {
