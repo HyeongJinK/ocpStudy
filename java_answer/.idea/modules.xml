@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/java_answer/P100_Finding an element in an array/P99_FindingElementArray/P99_FindingElementArray.iml" filepath="$PROJECT_DIR$/java_answer/P100_Finding an element in an array/P99_FindingElementArray/P99_FindingElementArray.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java_answer/P100_Finding an element in an array/P100_Finding an element in an array.iml" filepath="$PROJECT_DIR$/java_answer/P100_Finding an element in an array/P100_Finding an element in an array.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java_answer/P101_ComparingTwoSrraysLexicographically/P101_ComparingTwoSrraysLexicographically.iml" filepath="$PROJECT_DIR$/java_answer/P101_ComparingTwoSrraysLexicographically/P101_ComparingTwoSrraysLexicographically.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/java_answer.iml" filepath="$PROJECT_DIR$/.idea/java_answer.iml" />
     </modules>
   </component>

@@ -6,10 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="P99_FindingElementArray" />
+        <module name="P100_Finding an element in an array" />
+        <module name="P101_ComparingTwoSrraysLexicographically" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="10">
+      <module name="P100_Finding an element in an array" target="11" />
+      <module name="P101_ComparingTwoSrraysLexicographically" target="11" />
       <module name="P99_FindingElementArray" target="1.7" />
     </bytecodeTargetLevel>
   </component>

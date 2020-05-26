@@ -7,7 +7,10 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/P99_Finding an element in an array/P99_FindingElementArray/pom.xml" />
+        <option value="$PROJECT_DIR$/java_answer/P101_ComparingTwoSrraysLexicographically/pom.xml" />
+        <option value="$PROJECT_DIR$/java_answer/P100_Finding an element in an array/pom.xml" />
       </list>
     </option>
   </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_14" default="false" project-jdk-name="openjdk-14" project-jdk-type="JavaSDK" />
 </project>
