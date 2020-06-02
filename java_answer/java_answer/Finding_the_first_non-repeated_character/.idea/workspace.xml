@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="611fb8e7-cbda-42ad-a6c7-4e33c37d67d4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Counting_Duplicate_Characters/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Counting_Duplicate_Characters/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Counting_Duplicate_Characters/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Counting_Duplicate_Characters/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Counting_Duplicate_Characters/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Counting_Duplicate_Characters/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Counting_Duplicate_Characters/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Counting_Duplicate_Characters/.idea/vcs.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1bk4jWVrjbfDRY96qzT7eMJYar4" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>$USER_HOME$/.subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="611fb8e7-cbda-42ad-a6c7-4e33c37d67d4" name="Default Changelist" comment="" />
+      <created>1589162892513</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1589162892513</updated>
+      <workItem from="1589162896819" duration="11000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+</project>
